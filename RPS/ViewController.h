@@ -14,6 +14,9 @@
 {
     IBOutlet UIImageView *computerImage;
     IBOutlet UIImageView *playerImage;
+    IBOutlet UIButton *rock;
+    IBOutlet UIButton *paper;
+    IBOutlet UIButton *scissors;
     int result;
         //Result... 0 = Loss, 1= Tie, 2= Win
     int choice;
@@ -23,7 +26,7 @@
 
 -(IBAction)setChoice:(id)sender;
 -(void)randomizeCompChoice;
--(IBAction)game;
--(void)changePicture:(int)selection: (int)player;
+-(void)game;
+-(void)changePicture:(int)selection:(int)player;
 
 @end

@@ -19,7 +19,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"%@",@"Phil");
-    
+    [rock.imageView setImage:[UIImage imageNamed:@"rock.png"]];
+    [paper.imageView setImage:[UIImage imageNamed:@"paper.png"]];
+    [scissors.imageView setImage:[UIImage imageNamed:@"scissors.png"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,7 +44,7 @@
     NSLog(@"%d",compChoice);
 }
 //Game Engine.
--(IBAction)game
+-(void)game
 {
     [self randomizeCompChoice];
     if (choice == compChoice)
@@ -101,7 +103,7 @@
     [alert show];
 }
 
--(void)changePicture:(int)selection: (int)player
+-(void)changePicture:(int)selection:(int)player
 {
     if (player == 0)
     {

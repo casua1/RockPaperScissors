@@ -14,9 +14,11 @@
 {
     IBOutlet UIImageView *computerImage;
     IBOutlet UIImageView *playerImage;
-    IBOutlet UILabel *result;
+    int result;
+        //Result... 0 = Loss, 1= Tie, 2= Win
     int choice;
     int compChoice;
+    NSString *endMessage;
 }
 
 -(IBAction)setChoice:(id)sender;

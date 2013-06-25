@@ -19,6 +19,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"%@",@"Phil");
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +47,7 @@
     [self randomizeCompChoice];
     if (choice == compChoice)
     {
-        result.text = [NSString stringWithFormat:@"%s","Tie"];
+        result = 1;
     }
     else
     {
@@ -55,35 +56,49 @@
             case 0:
                 if (compChoice == 1)
                 {
-                    result.text = [NSString stringWithFormat:@"%s","Loss"];
+                    result = 0;
                 }
                 else
                 {
-                    result.text = [NSString stringWithFormat:@"%s","Win"];
+                    result = 2;
                 }
                 break;
             case 1:
                 if (compChoice == 0)
                 {
-                    result.text = [NSString stringWithFormat:@"%s","Win"];
+                    result = 2;
                 }
                 else
                 {
-                    result.text = [NSString stringWithFormat:@"%s","Loss"];
+                    result = 0;
                 }
                 break;
             case 2:
                 if (compChoice == 0)
                 {
-                    result.text = [NSString stringWithFormat:@"%s","Loss"];
+                    result = 0;
                 }
                 else
                 {
-                    result.text = [NSString stringWithFormat:@"%s","Win"];
+                    result = 2;
                 }
                 break;
         }
     }
+    if (result == 2)
+    {
+        endMessage = @"Player Wins.";
+    }
+    if (result == 1)
+    {
+        endMessage = @"It's a Tie.";
+    }
+    if (result == 0)
+    {
+        endMessage = @"Player Loses.";
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over!" message:endMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil];
+    [alert show];
 }
 
 -(void)changePicture:(int)selection: (int)player

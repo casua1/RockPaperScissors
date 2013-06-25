@@ -12,8 +12,10 @@
 
 @interface ViewController : UIViewController
 {
-    IBOutlet UIImageView *sampleImage;
+    IBOutlet UIImageView *computerImage;
+    IBOutlet UIImageView *playerImage;
 }
 
+-(void)getChoice:(id)sender;
 
 @end

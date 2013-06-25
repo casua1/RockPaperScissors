@@ -18,7 +18,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [sampleImage setImage:[UIImage imageNamed:@"wallpaper.png"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -27,4 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)getChoice:(id)sender
+{
+    
+}
 @end

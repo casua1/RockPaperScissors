@@ -17,10 +17,14 @@
     IBOutlet UIButton *rock;
     IBOutlet UIButton *paper;
     IBOutlet UIButton *scissors;
+    IBOutlet UILabel *WLT;
     int result;
         //Result... 0 = Loss, 1= Tie, 2= Win
     int choice;
     int compChoice;
+    int win;
+    int loss;
+    int tie;
     NSString *endMessage;
 }
 

@@ -19,9 +19,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSLog(@"%@",@"Phil");
-    [rock.imageView setImage:[UIImage imageNamed:@"rock.png"]];
-    [paper.imageView setImage:[UIImage imageNamed:@"paper.png"]];
-    [scissors.imageView setImage:[UIImage imageNamed:@"scissors.png"]];
+    [rock setImage:[UIImage imageNamed:@"rock.png"] forState:UIControlStateNormal];
+    [paper setImage:[UIImage imageNamed:@"paper.png"] forState:UIControlStateNormal];
+    [scissors setImage:[UIImage imageNamed:@"scissors.png"] forState:UIControlStateNormal];
+    win = 0;
+    loss = 0;
+    tie = 0;
+    [WLT setText: [NSString stringWithFormat:@"Wins: %d Losses: %d Ties: %d", win, loss, tie]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +54,7 @@
     if (choice == compChoice)
     {
         result = 1;
+        tie = tie + 1;
     }
     else
     {
@@ -59,30 +64,36 @@
                 if (compChoice == 1)
                 {
                     result = 0;
+                    loss = loss + 1;
                 }
                 else
                 {
                     result = 2;
+                    win = win + 1;
                 }
                 break;
             case 1:
                 if (compChoice == 0)
                 {
                     result = 2;
+                    win = win + 1;
                 }
                 else
                 {
                     result = 0;
+                    loss = loss + 1;
                 }
                 break;
             case 2:
                 if (compChoice == 0)
                 {
                     result = 0;
+                    loss = loss + 1;
                 }
                 else
                 {
                     result = 2;
+                    win = win + 1;
                 }
                 break;
         }
@@ -99,6 +110,7 @@
     {
         endMessage = @"Player Loses.";
     }
+    [WLT setText: [NSString stringWithFormat:@"Wins: %d Losses: %d Ties: %d", win, loss, tie]];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over!" message:endMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil];
     [alert show];
 }
